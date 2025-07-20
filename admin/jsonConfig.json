@@ -19,7 +19,8 @@
       "tooltip_ipAddress": "IP address of the Wolf CKL evo BACnet interface (e.g., 172.16.0.1)",
       "tooltip_port": "UDP port for BACnet/IP (default: 47808)",
       "tooltip_deviceInstance": "BACnet device instance of the Wolf CKL evo (default: 77000)",
-      "tooltip_pollInterval": "Interval in milliseconds to poll readable BACnet objects (e.g., 5000 for 5 seconds)"
+      "tooltip_pollInterval": "Interval in milliseconds to poll readable BACnet objects (e.g., 5000 for 5 seconds)",
+      "table_title_bacnet_objects": "Configured BACnet Objects"
     },
     "de": {
       "main_settings": "Haupteinstellungen",
@@ -39,8 +40,9 @@
       "column_name": "Spaltenname",
       "tooltip_ipAddress": "IP-Adresse der Wolf CKL evo BACnet Schnittstelle (z.B. 172.16.0.1)",
       "tooltip_port": "UDP-Port für BACnet/IP (Standard: 47808)",
-      "tooltip_deviceInstance": "BACnet Geräteinstanz der Wolf CKL evo (Standard: 77000)",
-      "tooltip_pollInterval": "Intervall in Millisekunden, um lesbare BACnet Objekte abzufragen (z.B. 5000 für 5 Sekunden)"
+      "tooltip_deviceInstance": "BACnet Geräteinstanz der Wolf CKL evo (Standard: 47808)",
+      "tooltip_pollInterval": "Intervall in Millisekunden, um lesbare BACnet Objekte abzufragen (z.B. 5000 für 5 Sekunden)",
+      "table_title_bacnet_objects": "Konfigurierte BACnet Objekte"
     }
   },
   "type": "panel",
@@ -91,7 +93,7 @@
               "label": "bacnet_objects",
               "help": "Here you can define the BACnet objects to be read from or written to your Wolf CKL evo.",
               "collapsable": true,
-              "title": "Configured BACnet Objects",
+              "title": "table_title_bacnet_objects",
               "minRows": 0,
               "items": {
                 "name": {
