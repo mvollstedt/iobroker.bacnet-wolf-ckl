@@ -44,7 +44,7 @@
     },
     "messagebox": true,
     "allowCommon": true,
-    "mode": "daemon"  <-- DIESE ZEILE HINZUFÜGEN
+    "mode": "daemon"
   },
   "native": {
     "ipAddress": "172.16.0.1",
