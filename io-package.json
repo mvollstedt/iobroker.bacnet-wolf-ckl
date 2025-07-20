@@ -1,0 +1,94 @@
+{
+  "common": {
+    "name": "bacnet-wolf-ckl",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release",
+        "de": "Erste Veröffentlichung"
+      }
+    },
+    "title": "Wolf CKL BACnet Adapter",
+    "titleLang": {
+      "en": "Wolf CKL BACnet Adapter",
+      "de": "Wolf CKL BACnet Adapter"
+    },
+    "desc": {
+      "en": "ioBroker adapter for Wolf CKL evo ventilation systems via BACnet/IP",
+      "de": "ioBroker Adapter für Wolf CKL evo Lüftungsanlagen via BACnet/IP"
+    },
+    "authors": [
+      "Your Name <your.email@example.com>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "BACnet",
+      "Wolf",
+      "CKL"
+    ],
+    "license": "MIT",
+    "platform": "node",
+    "main": "main.js",
+    "icon": "bacnet-wolf-ckl.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.bacnet-wolf-ckl/master/admin/bacnet-wolf-ckl.png",
+    "readme": "https://github.com/ioBroker/ioBroker.bacnet-wolf-ckl/blob/master/README.md",
+    "loglevel": "info",
+    "compact": true,
+    "connectionType": "assumed",
+    "dataSource": "poll",
+    "singleton": false,
+    "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
+    "messagebox": true,
+    "allowCommon": true
+  },
+  "native": {
+    "ipAddress": "172.16.0.1",
+    "port": 47808,
+    "deviceInstance": 77000,
+    "pollInterval": 5000,
+    "bacnetObjects": [
+      {
+        "name": "Betriebsmodus",
+        "bacnetObjectType": "MV",
+        "bacnetInstance": 1,
+        "unit": "",
+        "readWrite": "R/W",
+        "description": "Aktueller Betriebsmodus (Standby, Manual, Timer, BMS, Test, Emergency)",
+        "ioBrokerType": "number"
+      },
+      {
+        "name": "Sollwert_Temperatur",
+        "bacnetObjectType": "AV",
+        "bacnetInstance": 1,
+        "unit": "°C",
+        "readWrite": "R/W",
+        "description": "Sollwert Temperatur",
+        "ioBrokerType": "number"
+      },
+      {
+        "name": "Zuluft_Temperatur",
+        "bacnetObjectType": "AI",
+        "bacnetInstance": 1,
+        "unit": "°C",
+        "readWrite": "R",
+        "description": "Aktuelle Zuluft Temperatur",
+        "ioBrokerType": "number"
+      },
+      {
+        "name": "Aussen_Temperatur",
+        "bacnetObjectType": "AI",
+        "bacnetInstance": 2,
+        "unit": "°C",
+        "readWrite": "R",
+        "description": "Aktuelle Außentemperatur",
+        "ioBrokerType": "number"
+      }
+      // Weitere Datenpunkte können hier hinzugefügt werden
+    ]
+  },
+  "objects": []
+}

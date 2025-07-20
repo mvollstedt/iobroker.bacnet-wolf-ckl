@@ -1,0 +1,52 @@
+{
+  "name": "iobroker.bacnet-wolf-ckl",
+  "version": "0.0.1",
+  "description": "ioBroker adapter for Wolf CKL evo ventilation systems via BACnet/IP",
+  "author": "Your Name <your.email@example.com>",
+  "homepage": "",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "BACnet",
+    "Wolf",
+    "CKL"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioBroker/ioBroker.bacnet-wolf-ckl.git"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.6.3",
+    "node-bacnet": "^2.0.0"
+  },
+  "devDependencies": {
+    "@iobroker/testing": "^4.1.0",
+    "@types/node": "^16.11.7",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "mocha": "^9.1.3",
+    "prettier": "^2.4.1",
+    "sinon": "^12.0.1",
+    "sinon-chai": "^3.7.0"
+  },
+  "main": "main.js",
+  "files": [
+    "admin",
+    "main.js",
+    "io-package.json",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test:js": "mocha --config .mocharc.json \"@(src|test)/**/*.test.js\"",
+    "test:package": "mocha --config .mocharc.json test/package --exit",
+    "test:unit": "mocha --config .mocharc.json test/unit --exit",
+    "test:integration": "mocha --config .mocharc.json test/integration --exit",
+    "test": "npm run test:js && npm run test:package",
+    "lint": "eslint"
+  },
+  "bugs": {
+    "url": "https://github.com/ioBroker/ioBroker.bacnet-wolf-ckl/issues"
+  }
+}
