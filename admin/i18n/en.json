@@ -1,0 +1,6 @@
+{
+  "main_settings": "Main Settings (Test)",
+  "bacnet_objects": "BACnet Objects (Test)",
+  "test_field_main": "Main Tab Test Field",
+  "test_field_bacnet": "BACnet Tab Test Field"
+}

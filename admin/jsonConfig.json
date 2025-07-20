@@ -1,18 +1,4 @@
 {
-  "i18n": {
-    "en": {
-      "main_settings": "Main Settings (Test)",
-      "bacnet_objects": "BACnet Objects (Test)",
-      "test_field_main": "Main Tab Test Field",
-      "test_field_bacnet": "BACnet Tab Test Field"
-    },
-    "de": {
-      "main_settings": "Haupteinstellungen (Test)",
-      "bacnet_objects": "BACnet Objekte (Test)",
-      "test_field_main": "Haupt-Tab Testfeld",
-      "test_field_bacnet": "BACnet Tab Testfeld"
-    }
-  },
   "type": "panel",
   "items": {
     "tabs": {

@@ -2,43 +2,33 @@ const gulp = require('gulp');
 const fs = require('fs');
 const path = require('path');
 
-// Task zur Generierung von words.js aus jsonConfig.json
+// Task zur Generierung von words.js aus dem i18n-Ordner
 gulp.task('admin', function(cb) {
-    const jsonConfigPath = path.join(__dirname, 'admin', 'jsonConfig.json');
+    const i18nDir = path.join(__dirname, 'admin', 'i18n');
     const wordsJsPath = path.join(__dirname, 'admin', 'words.js');
 
-    try {
-        // jsonConfig.json lesen
-        const jsonConfig = JSON.parse(fs.readFileSync(jsonConfigPath, 'utf8'));
-        const i18n = jsonConfig.i18n || {}; // Den i18n-Abschnitt extrahieren
+    let systemDictionary = {};
 
-        // Inhalt für words.js vorbereiten
+    try {
+        // Alle JSON-Dateien im i18n-Ordner lesen
+        const languages = fs.readdirSync(i18nDir).filter(file => file.endsWith('.json'));
+
+        for (const langFile of languages) {
+            const langCode = path.basename(langFile, '.json'); // Dateiname ist der Sprachcode (z.B. 'en', 'de')
+            const langContent = JSON.parse(fs.readFileSync(path.join(i18nDir, langFile), 'utf8'));
+            systemDictionary[langCode] = langContent;
+        }
+
+        // Inhalt für words.js vorbereiten (Standard-Header von ioBroker)
         let wordsContent = '/* eslint-disable no-var */\n';
         wordsContent += '/* eslint-disable quotes */\n';
         wordsContent += '/* eslint-disable dot-notation */\n';
         wordsContent += '/* eslint-disable semi */\n';
 
-        wordsContent += '\nvar systemDictionary = {';
+        // Das systemDictionary-Objekt als JavaScript-Variable schreiben
+        wordsContent += '\nvar systemDictionary = ' + JSON.stringify(systemDictionary, null, 4) + ';\n';
 
-        // 'en' (Englisch) als Basis hinzufügen
-        if (i18n.en) {
-            wordsContent += '\n    "en": ' + JSON.stringify(i18n.en, null, 4) + ',';
-        } else {
-            wordsContent += '\n    "en": {},';
-        }
-
-        // Andere Sprachen hinzufügen
-        for (const lang in i18n) {
-            if (Object.prototype.hasOwnProperty.call(i18n, lang) && lang !== 'en') {
-                wordsContent += '\n    "' + lang + '": ' + JSON.stringify(i18n[lang], null, 4) + ',';
-            }
-        }
-        // Das abschließende Komma des letzten Spracheintrags entfernen
-        wordsContent = wordsContent.replace(/,\s*$/, '');
-
-        wordsContent += '\n};\n';
-
-        // words.js schreiben
+        // words.js Datei schreiben
         fs.writeFileSync(wordsJsPath, wordsContent, 'utf8');
         console.log('admin/words.js wurde erfolgreich generiert.');
         cb(); // Callback, um den Abschluss der Aufgabe zu signalisieren
