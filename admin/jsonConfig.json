@@ -1,48 +1,16 @@
 {
   "i18n": {
     "en": {
-      "main_settings": "Main Settings",
-      "bacnet_objects": "BACnet Objects",
-      "ipAddress": "BACnet/IP Address",
-      "port": "BACnet/IP Port",
-      "deviceInstance": "BACnet Device Instance",
-      "pollInterval": "Polling Interval (ms)",
-      "table_bacnetObjects_name": "Name (ioBroker State)",
-      "table_bacnetObjects_bacnetObjectType": "BACnet Object Type",
-      "table_bacnetObjects_bacnetInstance": "BACnet Instance",
-      "table_bacnetObjects_unit": "Unit",
-      "table_bacnetObjects_readWrite": "Read/Write",
-      "table_bacnetObjects_description": "Description",
-      "table_bacnetObjects_ioBrokerType": "ioBroker Type",
-      "add_bacnet_object": "Add BACnet Object",
-      "column_name": "Column Name",
-      "tooltip_ipAddress": "IP address of the Wolf CKL evo BACnet interface (e.g., 172.16.0.1)",
-      "tooltip_port": "UDP port for BACnet/IP (default: 47808)",
-      "tooltip_deviceInstance": "BACnet device instance of the Wolf CKL evo (default: 77000)",
-      "tooltip_pollInterval": "Interval in milliseconds to poll readable BACnet objects (e.g., 5000 for 5 seconds)",
-      "table_title_bacnet_objects": "Configured BACnet Objects"
+      "main_settings": "Main Settings (Test)",
+      "bacnet_objects": "BACnet Objects (Test)",
+      "test_field_main": "Main Tab Test Field",
+      "test_field_bacnet": "BACnet Tab Test Field"
     },
     "de": {
-      "main_settings": "Haupteinstellungen",
-      "bacnet_objects": "BACnet Objekte",
-      "ipAddress": "BACnet/IP Adresse",
-      "port": "BACnet/IP Port",
-      "deviceInstance": "BACnet Geräteinstanz",
-      "pollInterval": "Abfrageintervall (ms)",
-      "table_bacnetObjects_name": "Name (ioBroker State)",
-      "table_bacnetObjects_bacnetObjectType": "BACnet Objekttyp",
-      "table_bacnetObjects_bacnetInstance": "BACnet Instanz",
-      "table_bacnetObjects_unit": "Einheit",
-      "table_bacnetObjects_readWrite": "Lesen/Schreiben",
-      "table_bacnetObjects_description": "Beschreibung",
-      "table_bacnetObjects_ioBrokerType": "ioBroker Typ",
-      "add_bacnet_object": "BACnet Objekt hinzufügen",
-      "column_name": "Spaltenname",
-      "tooltip_ipAddress": "IP-Adresse der Wolf CKL evo BACnet Schnittstelle (z.B. 172.16.0.1)",
-      "tooltip_port": "UDP-Port für BACnet/IP (Standard: 47808)",
-      "tooltip_deviceInstance": "BACnet Geräteinstanz der Wolf CKL evo (Standard: 47808)",
-      "tooltip_pollInterval": "Intervall in Millisekunden, um lesbare BACnet Objekte abzufragen (z.B. 5000 für 5 Sekunden)",
-      "table_title_bacnet_objects": "Konfigurierte BACnet Objekte"
+      "main_settings": "Haupteinstellungen (Test)",
+      "bacnet_objects": "BACnet Objekte (Test)",
+      "test_field_main": "Haupt-Tab Testfeld",
+      "test_field_bacnet": "BACnet Tab Testfeld"
     }
   },
   "type": "panel",
@@ -54,33 +22,10 @@
           "type": "panel",
           "label": "main_settings",
           "items": {
-            "ipAddress": {
+            "testMain": {
               "type": "text",
-              "label": "ipAddress",
-              "tooltip": "tooltip_ipAddress",
-              "default": "172.16.0.1"
-            },
-            "port": {
-              "type": "number",
-              "label": "port",
-              "tooltip": "tooltip_port",
-              "default": 47808,
-              "min": 1,
-              "max": 65535
-            },
-            "deviceInstance": {
-              "type": "number",
-              "label": "deviceInstance",
-              "tooltip": "tooltip_deviceInstance",
-              "default": 77000,
-              "min": 0
-            },
-            "pollInterval": {
-              "type": "number",
-              "label": "pollInterval",
-              "tooltip": "tooltip_pollInterval",
-              "default": 5000,
-              "min": 1000
+              "label": "test_field_main",
+              "default": "Main tab works!"
             }
           }
         },
@@ -88,72 +33,10 @@
           "type": "panel",
           "label": "bacnet_objects",
           "items": {
-            "bacnetObjects": {
-              "type": "table",
-              "label": "bacnet_objects",
-              "help": "Here you can define the BACnet objects to be read from or written to your Wolf CKL evo.",
-              "collapsable": true,
-              "title": "table_title_bacnet_objects",
-              "minRows": 0,
-              "items": {
-                "name": {
-                  "type": "text",
-                  "label": "table_bacnetObjects_name",
-                  "default": ""
-                },
-                "bacnetObjectType": {
-                  "type": "select",
-                  "label": "table_bacnetObjects_bacnetObjectType",
-                  "options": [
-                    { "label": "Analog Input (AI)", "value": "AI" },
-                    { "label": "Analog Output (AO)", "value": "AO" },
-                    { "label": "Analog Value (AV)", "value": "AV" },
-                    { "label": "Binary Input (BI)", "value": "BI" },
-                    { "label": "Binary Output (BO)", "value": "BO" },
-                    { "label": "Binary Value (BV)", "value": "BV" },
-                    { "label": "Multi-state Input (MI)", "value": "MI" },
-                    { "label": "Multi-state Output (MO)", "value": "MO" },
-                    { "label": "Multi-state Value (MV)", "value": "MV" }
-                  ],
-                  "default": "AV"
-                },
-                "bacnetInstance": {
-                  "type": "number",
-                  "label": "table_bacnetObjects_bacnetInstance",
-                  "default": 0,
-                  "min": 0
-                },
-                "unit": {
-                  "type": "text",
-                  "label": "table_bacnetObjects_unit",
-                  "default": ""
-                },
-                "readWrite": {
-                  "type": "select",
-                  "label": "table_bacnetObjects_readWrite",
-                  "options": [
-                    { "label": "Read (R)", "value": "R" },
-                    { "label": "Read/Write (R/W)", "value": "R/W" }
-                  ],
-                  "default": "R"
-                },
-                "ioBrokerType": {
-                  "type": "select",
-                  "label": "table_bacnetObjects_ioBrokerType",
-                  "options": [
-                    { "label": "Number", "value": "number" },
-                    { "label": "Boolean", "value": "boolean" },
-                    { "label": "String", "value": "string" },
-                    { "label": "Mixed", "value": "mixed" }
-                  ],
-                  "default": "number"
-                },
-                "description": {
-                  "type": "text",
-                  "label": "table_bacnetObjects_description",
-                  "default": ""
-                }
-              }
+            "testBacnet": {
+              "type": "text",
+              "label": "test_field_bacnet",
+              "default": "BACnet tab works!"
             }
           }
         }
