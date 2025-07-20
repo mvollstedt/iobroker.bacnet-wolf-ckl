@@ -43,7 +43,8 @@
       "config": "json"
     },
     "messagebox": true,
-    "allowCommon": true
+    "allowCommon": true,
+    "mode": "daemon"  <-- DIESE ZEILE HINZUFÜGEN
   },
   "native": {
     "ipAddress": "172.16.0.1",
