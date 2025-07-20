@@ -87,7 +87,6 @@
         "description": "Aktuelle Außentemperatur",
         "ioBrokerType": "number"
       }
-      // Weitere Datenpunkte können hier hinzugefügt werden
     ]
   },
   "objects": []
